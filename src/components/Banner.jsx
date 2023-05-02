@@ -16,10 +16,7 @@ const Banner = () => {
       </p>
       <div className="flex justify-center mt-3">
         <button className="bg-orange-500 rounded-lg px-3 py-2 text-white font-semibold">
-          Explore Recipe{" "}
-          <span>
-            <FaArrowRight></FaArrowRight>
-          </span>
+          Explore Recipe <FaArrowRight className="inline"></FaArrowRight>
         </button>
       </div>
     </div>
