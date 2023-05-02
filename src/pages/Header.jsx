@@ -20,7 +20,12 @@ const Header = () => {
       </nav>
       <div className="flex gap-2 items-center">
         {user?.photoURL ? (
-          <img className="w-8 rounded-full" src={user.photoURL} alt="" />
+          <img
+            className="w-8 rounded-full"
+            src={user.photoURL}
+            alt=""
+            title={user.displayName}
+          />
         ) : (
           <FaUserCircle
             style={{ color: "orange", fontSize: "2rem" }}

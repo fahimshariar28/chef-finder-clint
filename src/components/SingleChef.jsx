@@ -1,13 +1,21 @@
 import React from "react";
 import { FaRegHeart } from "react-icons/fa";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
   const { id, name, picture, description, likes } = chef;
   return (
     <div>
-      <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-        <img className="rounded-t-lg" src={picture} alt="" />
+      <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow p-2">
+        <LazyLoadImage
+          className="rounded-t-lg"
+          loading="lazy"
+          width="100%"
+          height="100%"
+          src={picture}
+          alt=""
+        />
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold ">{name}</h5>
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
