@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-orange-600 text-white py-8  divide-y mt-20">
       <div className="container mx-auto flex flex-wrap justify-between">
         <div className="w-full md:w-1/3 mb-4 md:mb-0">
-          <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r text-gray-900">
+          <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r text-white">
             Cheif Finder
           </p>
           <p>
