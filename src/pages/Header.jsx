@@ -19,15 +19,17 @@ const Header = () => {
         <Link className="font-semibold text-xl">Contact Us</Link>
       </nav>
       <div className="flex gap-2 items-center">
+        {user?.photoURL ? (
+          <img className="w-8 rounded-full" src={user.photoURL} alt="" />
+        ) : (
+          <FaUserCircle
+            style={{ color: "orange", fontSize: "2rem" }}
+          ></FaUserCircle>
+        )}
         {!user ? (
           <Link to="/login">Login</Link>
         ) : (
-          <>
-            <FaUserCircle
-              style={{ color: "orange", fontSize: "2rem" }}
-            ></FaUserCircle>
-            <Link onClick={handleLogout}>Logout</Link>
-          </>
+          <Link onClick={handleLogout}>Logout</Link>
         )}
       </div>
     </div>
