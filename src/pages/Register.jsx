@@ -6,7 +6,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 const Register = () => {
   const { createUser, updateUser, signInWithGoogle, signInWithGithub } =
     useContext(AuthContext);
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
   const handelRegister = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
