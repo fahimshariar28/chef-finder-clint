@@ -3,7 +3,6 @@ import { FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
-  console.log(chef);
   const { id, name, picture, description, likes } = chef;
   return (
     <div>
