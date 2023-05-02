@@ -4,8 +4,10 @@ import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut();
+  };
   return (
     <div className="w-9/12 mx-auto mt-5 flex justify-between items-center">
       <h2 className="text-3xl font-bold text-orange-500">Cheif Finder</h2>
@@ -18,14 +20,14 @@ const Header = () => {
       </nav>
       <div className="flex gap-2 items-center">
         {!user ? (
+          <Link to="/login">Login</Link>
+        ) : (
           <>
             <FaUserCircle
               style={{ color: "orange", fontSize: "2rem" }}
             ></FaUserCircle>
-            <Link to="/login">Login</Link>
+            <Link onClick={handleLogout}>Logout</Link>
           </>
-        ) : (
-          <Link to="/logout">Logout</Link>
         )}
       </div>
     </div>

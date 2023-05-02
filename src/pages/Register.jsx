@@ -17,7 +17,6 @@ const Register = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          // ...
           updateUser(name, image);
         })
         .catch((error) => {
