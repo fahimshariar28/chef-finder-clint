@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
   const handelRegister = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.password.value;
+    const name = e.target.name.value;
+    const image = e.target.image.value;
     if (password === confirmPassword) {
       createUser(email, password)
         .then((userCredential) => {
@@ -16,6 +18,7 @@ const Register = () => {
           const user = userCredential.user;
           console.log(user);
           // ...
+          updateUser(name, image);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -50,6 +53,28 @@ const Register = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                     placeholder="name@company.com"
+                    required=""
+                  />
+                  <label className="block mt-2 mb-2 text-sm font-medium text-gray-900">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                    placeholder="Fahim Shariar"
+                    required=""
+                  />
+                  <label className="block mt-2 mb-2 text-sm font-medium text-gray-900">
+                    Your Image Url
+                  </label>
+                  <input
+                    type="text"
+                    name="image"
+                    id="image"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                    placeholder="http://example.com/image.png"
                     required=""
                   />
                 </div>
