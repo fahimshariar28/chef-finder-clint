@@ -20,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/chef/:id",
         element: <ChefDetails></ChefDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://the-cheif-finder-server-side-fahimshariar28.vercel.app/chef/${params.id}`
+          ),
       },
     ],
   },

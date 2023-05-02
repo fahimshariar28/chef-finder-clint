@@ -4,15 +4,7 @@ import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
   console.log(chef);
-  const {
-    id,
-    name,
-    picture,
-    description,
-    likes,
-    num_recipes,
-    years_of_experience,
-  } = chef;
+  const { id, name, picture, description, likes } = chef;
   return (
     <div>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
