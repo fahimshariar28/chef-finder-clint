@@ -9,7 +9,7 @@ const Register = () => {
   const auth = getAuth(app);
   const location = useLocation();
   const from = location.state?.from || "/";
-  const { createUser, updateUser, signInWithGoogle, signInWithGithub } =
+  const { createUser, signInWithGoogle, signInWithGithub, setLoading } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const handelRegister = (e) => {
@@ -27,7 +27,16 @@ const Register = () => {
           updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: image,
-          });
+          })
+            .then(() => {
+              // Profile updated!
+              // ...
+              setLoading(true);
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+            });
           navigate(from, { replace: true });
           console.log(user);
         })
