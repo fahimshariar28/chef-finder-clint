@@ -43,6 +43,7 @@ const Header = () => {
         ) : (
           <FaUserCircle
             style={{ color: "orange", fontSize: "2rem" }}
+            title={user?.displayName}
           ></FaUserCircle>
         )}
         {!user ? (

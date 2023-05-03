@@ -2,8 +2,11 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { getAuth, updateProfile } from "firebase/auth";
+import app from "../firebase/firebase.config";
 
 const Register = () => {
+  const auth = getAuth(app);
   const location = useLocation();
   const from = location.state?.from || "/";
   const { createUser, updateUser, signInWithGoogle, signInWithGithub } =
@@ -21,9 +24,12 @@ const Register = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          updateUser(name, image);
+          updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: image,
+          });
           navigate(from, { replace: true });
+          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
