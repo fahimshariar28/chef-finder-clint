@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import MainPage from "../pages/MainPage";
 import ChefDetails from "../pages/ChefDetails";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/chef/:id",
-        element: <ChefDetails></ChefDetails>,
+        element: (
+          <PrivateRoute>
+            <ChefDetails></ChefDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://the-cheif-finder-server-side-fahimshariar28.vercel.app/chef/${params.id}`
