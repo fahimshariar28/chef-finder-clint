@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
@@ -12,8 +12,11 @@ const Register = () => {
   const { createUser, signInWithGoogle, signInWithGithub, setLoading } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  const [error, setError] = useState("");
+
   const handelRegister = (e) => {
     e.preventDefault();
+    setError("");
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.password.value;
@@ -36,6 +39,7 @@ const Register = () => {
             .catch((error) => {
               // An error occurred
               // ...
+              setError(error.message);
             });
           navigate(from, { replace: true });
           console.log(user);
@@ -44,10 +48,11 @@ const Register = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode, errorMessage);
+          setError(error.message);
           // ..
         });
     } else {
-      alert("password not matched");
+      return setError("Password not match");
     }
   };
   const handleGoogleLogin = () => {
@@ -61,6 +66,7 @@ const Register = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        setError(error.message);
       });
   };
   const handleGithubLogin = () => {
@@ -74,6 +80,7 @@ const Register = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        setError(error.message);
       });
   };
   return (
@@ -99,7 +106,7 @@ const Register = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                     placeholder="name@company.com"
-                    required=""
+                    required
                   />
                   <label className="block mt-2 mb-2 text-sm font-medium text-gray-900">
                     Your Name
@@ -110,7 +117,7 @@ const Register = () => {
                     id="name"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                     placeholder="Fahim Shariar"
-                    required=""
+                    required
                   />
                   <label className="block mt-2 mb-2 text-sm font-medium text-gray-900">
                     Your Image Url
@@ -121,7 +128,7 @@ const Register = () => {
                     id="image"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                     placeholder="http://example.com/image.png"
-                    required=""
+                    required
                   />
                 </div>
                 <div>
@@ -134,7 +141,7 @@ const Register = () => {
                     id="password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                    required=""
+                    required
                   />
                 </div>
                 <div>
@@ -147,9 +154,14 @@ const Register = () => {
                     id="confirm-password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                    required=""
+                    required
                   />
                 </div>
+                <h3>
+                  {error && (
+                    <span className="text-red-500 text-sm">{error}</span>
+                  )}
+                </h3>
                 <div className="flex items-start">
                   <div className="flex items-center h-5">
                     <input
@@ -157,7 +169,7 @@ const Register = () => {
                       aria-describedby="terms"
                       type="checkbox"
                       className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                      required=""
+                      required
                     />
                   </div>
                   <div className="ml-3 text-sm">
