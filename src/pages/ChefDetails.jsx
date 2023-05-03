@@ -20,39 +20,40 @@ const ChefDetails = () => {
   } = chef;
   const [fav, setFav] = useState(false);
   return (
-    <div className="w-9/12 mx-auto mt-5">
-      <img src={picture} className=" rounded" alt="" />
-      <div className="flex justify-between">
-        <h1 className="text-3xl font-bold text-center mt-2">Name: {name}</h1>
-        <div className="flex justify-center items-center gap-2">
-          <p>Add to Favorite</p>
-          <button onClick={() => setFav(!fav)}>
-            {!fav ? (
-              <FaRegHeart
-                onClick={() => notify()}
-                className="text-red-500 text-2xl"
-              ></FaRegHeart>
-            ) : (
-              <FaHeart className="text-red-500 text-2xl"></FaHeart>
-            )}
-          </button>
-          <ToastContainer />
+    <div className=" mt-5">
+      <div className="w-9/12 mx-auto">
+        <img src={picture} className=" rounded" alt="" />
+        <div className="flex justify-between">
+          <h1 className="text-3xl font-bold text-center mt-2">Name: {name}</h1>
+          <div className="flex justify-center items-center gap-2">
+            <p>Add to Favorite</p>
+            <button onClick={() => setFav(!fav)}>
+              {!fav ? (
+                <FaRegHeart
+                  onClick={() => notify()}
+                  className="text-red-500 text-2xl"
+                ></FaRegHeart>
+              ) : (
+                <FaHeart className="text-red-500 text-2xl"></FaHeart>
+              )}
+            </button>
+            <ToastContainer />
+          </div>
         </div>
-      </div>
-      <p className="text-xl text-center mt-2">Description: {description}</p>
-      <div className="flex justify-evenly">
-        <h1 className="text-2xl font-bold text-center mt-2">
+        <p className="text-xl text-center mt-2">Description: {description}</p>
+      </div>{" "}
+      <div className="md:flex justify-evenly w-9/12 mx-auto">
+        <h1 className="text-2xl font-bold text-center mt-2 p-3 bg-slate-300 rounded-lg">
           Years of Experience: {years_of_experience}
         </h1>
-        <h1 className="text-2xl font-bold text-center mt-2">
+        <h1 className="text-2xl font-bold text-center mt-2 p-3 bg-slate-300 rounded-lg">
           Number of Recipes: {num_recipes}
         </h1>
-        <h1 className="text-2xl font-bold text-center mt-2">
+        <h1 className="text-2xl font-bold text-center mt-2 p-3 bg-slate-300 rounded-lg">
           Number of Likes: {likes}
         </h1>
       </div>
-      {/* make a table with the recipes */}
-      <div className="mt-5">
+      <div className="mt-5 w-full">
         <h1 className="text-3xl font-bold text-center mt-2">Recipes</h1>
         <table className="table-auto w-full">
           <thead>
