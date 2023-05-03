@@ -31,8 +31,9 @@ const Header = () => {
         <Link to="/" className="font-semibold text-xl">
           Home
         </Link>
-        <Link className="font-semibold text-xl">Blog</Link>
-        <Link className="font-semibold text-xl">Contact Us</Link>
+        <Link to="/blog" className="font-semibold text-xl">
+          Blog
+        </Link>
         {user && (
           <div
             className="avatar tooltip tooltip-bottom tooltip-primary"

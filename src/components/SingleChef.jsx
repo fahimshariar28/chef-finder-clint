@@ -3,7 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
-  const { id, name, picture, description, likes } = chef;
+  const { id, name, picture_chef, description, likes } = chef;
   return (
     <div>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow p-2">
@@ -12,7 +12,7 @@ const SingleChef = ({ chef }) => {
           loading="lazy"
           width="100%"
           height="100%"
-          src={picture}
+          src={picture_chef}
           alt=""
         />
         <div className="p-5">

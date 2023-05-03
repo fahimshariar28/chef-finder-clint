@@ -5,6 +5,7 @@ import MainPage from "../pages/MainPage";
 import ChefDetails from "../pages/ChefDetails";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../pages/Blog";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <MainPage></MainPage>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/login",
