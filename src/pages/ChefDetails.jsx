@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import Recipe from "../components/Recipe";
@@ -6,7 +6,6 @@ import Recipe from "../components/Recipe";
 const ChefDetails = () => {
   const chef = useLoaderData();
   const {
-    id,
     name,
     picture_chef,
     description,
