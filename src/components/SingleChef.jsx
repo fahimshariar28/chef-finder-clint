@@ -1,5 +1,4 @@
 import React from "react";
-import { FaRegHeart } from "react-icons/fa";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
@@ -29,8 +28,7 @@ const SingleChef = ({ chef }) => {
               Read more
             </Link>
             <div className="flex gap-2 items-center">
-              <FaRegHeart className="text-red-600"></FaRegHeart>
-              <span className="text-gray-700">{likes}</span>
+              <span className="text-gray-700">Total Likes: {likes}</span>
             </div>
           </div>
         </div>
