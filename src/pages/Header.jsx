@@ -33,18 +33,15 @@ const Header = () => {
         </Link>
         <Link className="font-semibold text-xl">Blog</Link>
         <Link className="font-semibold text-xl">Contact Us</Link>
-        {user?.photoURL ? (
-          <img
-            className="w-8 rounded-full"
-            src={user.photoURL}
-            alt=""
-            title={user.displayName}
-          />
-        ) : (
-          <FaUserCircle
-            style={{ color: "orange", fontSize: "2rem" }}
-            title={user?.displayName}
-          ></FaUserCircle>
+        {user && (
+          <div
+            className="avatar tooltip tooltip-bottom tooltip-primary"
+            data-tip={user.displayName}
+          >
+            <div className="w-9 rounded-full  ring-1 ring-primary">
+              <img src={user.photoURL} />
+            </div>
+          </div>
         )}
         {!user ? (
           <Link to="/login">
