@@ -11,7 +11,7 @@ const Header = () => {
   };
   return (
     <div className="w-9/12 mx-auto mt-5 flex justify-between items-center">
-      <h2 className="text-3xl font-bold text-orange-500">Cheif Finder</h2>
+      <h2 className="text-3xl font-bold text-orange-500">Chef Finder</h2>
 
       <div onClick={() => setOpen(!open)} className="text-sky-500 md:hidden">
         <span>
@@ -49,7 +49,7 @@ const Header = () => {
           <Link to="/login">
             <button
               type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 "
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 "
             >
               Login
             </button>
@@ -58,7 +58,7 @@ const Header = () => {
           <Link onClick={handleLogout}>
             <button
               type="button"
-              class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2"
+              className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2"
             >
               Logout
             </button>

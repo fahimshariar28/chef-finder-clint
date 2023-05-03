@@ -24,14 +24,14 @@ const PrivateRoute = ({ children }) => {
             fill="currentFill"
           />
         </svg>
-        <span class="sr-only">Loading...</span>
+        <span className="sr-only">Loading...</span>
       </div>
     </div>;
   }
   if (user) {
     return children;
   } else {
-    <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate state={{ from: location }} to="/login" replace></Navigate>;
   }
 };
 
