@@ -5,7 +5,6 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const Recipe = ({ recipe }) => {
-  console.log(recipe);
   const { name, picture, ingredients, method, rating } = recipe;
   const [fav, setFav] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -26,16 +25,20 @@ const Recipe = ({ recipe }) => {
             <div className="w-6/12">
               <h3 className="text-2xl font-semibold">Ingredients</h3>
               <ul>
-                {ingredients.map((ingredient) => (
-                  <li className="list-disc">{ingredient}</li>
+                {ingredients.map((ingredient, index) => (
+                  <li className="list-disc" key={index}>
+                    {ingredient}
+                  </li>
                 ))}
               </ul>
             </div>
             <div>
               <h3 className="text-2xl font-semibold">Method</h3>
               <ul>
-                {method.map((step) => (
-                  <li className="list-disc">{step}</li>
+                {method.map((step, index) => (
+                  <li className="list-disc" key={index}>
+                    {step}
+                  </li>
                 ))}
               </ul>
             </div>

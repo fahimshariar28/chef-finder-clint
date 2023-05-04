@@ -41,8 +41,8 @@ const ChefDetails = () => {
       <div>
         <h1 className="text-3xl font-bold text-center mt-5">Recipes</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-9/12 mx-auto">
-          {recipes.map((recipe) => (
-            <Recipe key={recipe.id} recipe={recipe}></Recipe>
+          {recipes.map((recipe, index) => (
+            <Recipe key={index} recipe={recipe}></Recipe>
           ))}
         </div>
       </div>
