@@ -39,10 +39,13 @@ const Chefs = () => {
     );
   }
   return (
-    <div className="grid md:grid-cols-3 gap-3 mt-5">
-      {data.map((chef) => (
-        <SingleChef key={chef.id} chef={chef}></SingleChef>
-      ))}
+    <div>
+      <h1 className="text-2xl font-semibold text-center mt-5">Chefs</h1>
+      <div className="grid md:grid-cols-3 gap-3 mt-5">
+        {data.map((chef) => (
+          <SingleChef key={chef.id} chef={chef}></SingleChef>
+        ))}
+      </div>
     </div>
   );
 };
