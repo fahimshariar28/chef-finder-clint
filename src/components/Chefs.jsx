@@ -4,6 +4,8 @@ import SingleChef from "./SingleChef";
 const Chefs = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showAll, setShoAll] = useState(false);
+
   useEffect(() => {
     setLoading(true);
     fetch("https://the-cheif-finder-server-side-fahimshariar28.vercel.app/chef")
@@ -13,6 +15,10 @@ const Chefs = () => {
         setLoading(false);
       });
   }, []);
+
+  const handleShowAll = () => {
+    setShoAll(true);
+  };
   if (loading) {
     return (
       <div className="flex items-center justify-center mt-5">
@@ -42,9 +48,18 @@ const Chefs = () => {
     <div>
       <h1 className="text-2xl font-semibold text-center mt-5">Chefs</h1>
       <div className="grid md:grid-cols-3 gap-3 mt-5">
-        {data.map((chef) => (
+        {data.slice(0, showAll ? 12 : 6).map((chef) => (
           <SingleChef key={chef.id} chef={chef}></SingleChef>
         ))}
+      </div>
+      <div className="text-center">
+        {!showAll && (
+          <span onClick={handleShowAll}>
+            <button className="btn glass shadow-xl outline-red-500 text-orange-600 mt-5">
+              Show All
+            </button>
+          </span>
+        )}
       </div>
     </div>
   );
