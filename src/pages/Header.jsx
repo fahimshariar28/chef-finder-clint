@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaEquals, FaRegTimesCircle, FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 
@@ -28,12 +28,18 @@ const Header = () => {
           open ? "top-20 right-6" : "-top-56 right-6"
         } z-10`}
       >
-        <Link to="/" className="font-semibold text-xl">
+        <NavLink
+          className={({ isActive }) => (isActive ? "active-link" : "link")}
+          to="/"
+        >
           Home
-        </Link>
-        <Link to="/blog" className="font-semibold text-xl">
+        </NavLink>
+        <NavLink
+          to="/blog"
+          className={({ isActive }) => (isActive ? "active-link" : "link")}
+        >
           Blog
-        </Link>
+        </NavLink>
         {user && (
           <div
             className="avatar tooltip tooltip-bottom tooltip-primary"
