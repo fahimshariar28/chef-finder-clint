@@ -15,7 +15,7 @@ const Recipe = ({ recipe }) => {
   };
   return (
     <div>
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card h-full bg-base-100 shadow-xl relative">
         <figure className="px-10 pt-10">
           <img src={picture} alt="" className="rounded-xl" />
         </figure>
@@ -43,7 +43,7 @@ const Recipe = ({ recipe }) => {
               </ul>
             </div>
           </div>
-          <div className="flex justify-evenly items-center gap-10">
+          <div className="flex justify-evenly items-center gap-10 absolute bottom-2">
             <div className="flex justify-center items-center gap-1">
               <h3 className="text-xl font-semibold">{rating}</h3>
               <Rating style={{ maxWidth: 150 }} value={rating} readOnly />
