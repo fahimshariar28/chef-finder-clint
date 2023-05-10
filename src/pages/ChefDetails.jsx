@@ -6,7 +6,6 @@ import { useEffect } from "react";
 
 const ChefDetails = () => {
   const chef = useLoaderData();
-  const id = useParams();
   const {
     name,
     picture_chef,
@@ -18,7 +17,7 @@ const ChefDetails = () => {
   } = chef;
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+  }, []);
   return (
     <>
       <div className="w-9/12 mx-auto md:flex justify-between  items-center gap-5 mt-5">
