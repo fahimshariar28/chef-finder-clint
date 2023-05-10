@@ -1,10 +1,12 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Recipe from "../components/Recipe";
+import { useEffect } from "react";
 
 const ChefDetails = () => {
   const chef = useLoaderData();
+  const id = useParams();
   const {
     name,
     picture_chef,
@@ -14,6 +16,9 @@ const ChefDetails = () => {
     years_of_experience,
     recipes,
   } = chef;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
   return (
     <>
       <div className="w-9/12 mx-auto md:flex justify-between  items-center gap-5 mt-5">
